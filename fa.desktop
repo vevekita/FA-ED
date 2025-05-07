@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=fa
+Comment=Abrir \\"/tmp/guest-tlizak/Área de trabalho/fa\\"
+Icon=inode-directory
+Name[pt_BR]=fa
+Comment[pt_BR]=Abrir \\"/tmp/guest-tlizak/Área de trabalho/fa\\"
+Icon[pt_BR]=inode-directory
+URL=file:///tmp/guest-tlizak/%C3%81rea%20de%20trabalho/fa
+Type=Link
