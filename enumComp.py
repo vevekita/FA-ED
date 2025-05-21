@@ -17,6 +17,14 @@ class Funcionario:
     dataNascimento: str
     setor: cad_funcionario
 
+def compara(setor: int) -> str:
+    resultado = str('')
+    if Funcionario.setor == setor:
+        resultado = "Sim"
+    else:
+        resultado = 'Não'
+    return resultado
+
 def cad_func(cpf: str, nome: str, dataNas: str, setor: cad_funcionario) -> Funcionario:
     return Funcionario(cpf, nome, dataNas, setor)
 
