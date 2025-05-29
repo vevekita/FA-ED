@@ -7,7 +7,7 @@ def valor_minimo(valor: list) -> int:
     2
     >>> valor_minimo([12, 5, 5, 14, 5, 16, 5])
     4'''
-    minimo = valor[0]
+    minimo: int = valor[0]
     total: int = 0
     for elemento in valor:
         if elemento <= minimo:
