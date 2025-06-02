@@ -1,6 +1,6 @@
 # Projete uma função que encontre as posições de todas as ocorrências de um nome em uma lista de nomes.
 
-def posicao_nome(nomes: list[str]) -> list[int]:
+def posicao_nome(nomes: list[str], n: str) -> list[int]:
     '''Encontra as posições em que um determinado nome aparece.
     Exemplos:
     >>> posicao_nome(['Sakai', 'Komadaki', 'Emilyn', 'Komadaki'], 'Komadaki')
@@ -11,8 +11,8 @@ def posicao_nome(nomes: list[str]) -> list[int]:
 
     posicao = []
     i: int = 0
-    for n in nomes:
-        if n == str:
+    for elemento in nomes:
+        if elemento == n:
             posicao.append(i)
         i += 1 #com o range não precisa dessa parte
     return posicao
