@@ -1,7 +1,7 @@
 # Projete uma função que receba como entrada um arranjo de números, uma posição i e um número n e devolve 
 # um novo arranjo com n adicionado na posição i do arranjo de entrada.
 
-def posicao(arranjo: list[int], i: int, n: int) -> list[int]:
+def posicao(arranjo: list[int], pos: int, num: int) -> list[int]:
     '''Recebe um arranjo de números, uma posição i e um número n. Devolve um arranjo com n adicionado na posição i
     Exemplos:
     >>> posicao([1, 45, 63, 3, 5], 3, 6)
@@ -11,10 +11,18 @@ def posicao(arranjo: list[int], i: int, n: int) -> list[int]:
     >>> posicao([0, 1, 2, 3, 4, 5, 6], 1, 1)
     [0, 1, 1, 2, 3, 4, 5, 6]
     '''
-    elemento = arranjo[i]
-    for num in range(len(arranjo)):
-        if arranjo[num] == elemento:
-            arranjo.insert(i, n)
-        elemento = arranjo[i + 1] 
-    return arranjo
-        
+    #elemento = arranjo[i]
+    #for num in range(len(arranjo)):
+    #    if arranjo[num] == elemento:
+    #        arranjo.insert(i, n)
+    #    elemento = arranjo[i + 1] 
+    #return arranjo
+    
+    aux: list[int] = []
+    for i in range(len(arranjo)):
+        if i == pos:
+            aux.append(num)
+        aux.append(arranjo[i])
+    return aux
+
+print(posicao([1, 45, 63, 3, 5], 3, 6))

@@ -9,9 +9,19 @@ def troca(caracteres: list[str], c1: str, c2: str) -> list[str]:
     >>> troca(['w', 'z', 'z', 'z', 'w'], 'z', 'o')
     ['w', 'o', 'o', 'o', 'w']
     '''
-
+    lista2: list[str] = []
     for i in range(len(caracteres)):
         if caracteres[i] == c1:
-            caracteres.remove(c1)
-            caracteres.insert(i, c2)
-    return caracteres
+            lista2.append(c2)
+        else:
+            lista2.append(caracteres[i])
+    return lista2
+
+    #lista2: list[str] = []
+    #for letra in caracteres:
+    #    if letra == c1:
+    #        lista2.append(c2)
+    #    else:
+    #        lista2.append(letra)
+    #return lista2
+    
