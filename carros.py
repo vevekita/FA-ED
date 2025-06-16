@@ -29,11 +29,11 @@ def veiculos(carros: list[Veiculos], carroCategoria: categoria) -> list:
     >>> carro2 = Veiculos('Hyundai', 'HB20', '2019', 'Vermelho', categoria.HATCH)
     >>> carro3 = Veiculos('Renault', 'Sandero', '2017', 'Rosa', categoria.SUV)
     >>> veiculos([carro1, carro2, carro3], categoria.HATCH)
-    [CategoriaCarro[modelo='Onix', ano=2019], CategoriaCarro[modelo='Hyundai', ano=2019]]
+    [CategoriaCarro[modelo='Onix', ano='2019'], CategoriaCarro[modelo='HB20', ano='2019']]
     '''
-    cars = [CategoriaCarro]
+    cars = []
     for i in carros:
         if i.categoria == carroCategoria:
-            cars.append(i.modelo)
-            cars.append(i.ano)
+            carroEscolhido: CategoriaCarro = CategoriaCarro(i.modelo, i.ano)
+            cars.append(carroEscolhido)
     return cars
