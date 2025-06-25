@@ -15,7 +15,7 @@ def numero_lista(numeros: list[int], num: int) -> bool:
     '''
     resposta: bool = False
     i = 0
-    while i < len(numeros):
+    while i < len(numeros): #No do professor ele colocou resposta == False and i < len(numeros)
         if numeros[i] == num:
             resposta = True
         i += 1
