@@ -18,8 +18,7 @@ def sequencia():
     11) remover o 4;
     12) remover o 1. 
     '''
-
-    saida = []
+    
     p1 = Pilha(6)
     n1 = 1
     n2 = 2
@@ -28,20 +27,24 @@ def sequencia():
     n5 = 5
     n6 = 6
     
-    #acho que tem que adiconar os consulta_topo aqui
-    p1.empilha(Item(n1))
-    p1.empilha(Item(n2))
-    p1.empilha(Item(n3))
-    saida.append(p1.desempilha())
-    saida.append(p1.desempilha())
-    p1.empilha(Item(n4))
-    p1.empilha(Item(n5))
-    saida.append(p1.desempilha())
-    p1.empilha(Item(n6))
-    saida.append(p1.desempilha())
-    saida.append(p1.desempilha())
-    saida.append(p1.desempilha())
-
-    print(saida)
+    print('A sequência necessária é 3, 2, 5, 6, 4, 1') 
+    p1.empilha(Item(n1)) 
+    p1.empilha(Item(n2)) 
+    pl.empilha(Item(n3)) 
+    print(p1.consulta_topo().valor) 
+    p1.desempilha() 
+    print(p1.consulta_topo().valor) 
+    pl.desempilha() 
+    p1.empilha(Item(n4)) 
+    pl.empilha(Item(n5)) 
+    print(p1.consulta_topo().valor) 
+    pl.desempilha() 
+    p1.empilha(Item(n6)) 
+    print(p1.consulta_topo().valor) 
+    pl.desempilha() 
+    print(p1.consulta_topo().valor) 
+    pl.desempilha() 
+    print(pl.consulta_topo().valor) 
+    pl.desempilha()
 
 sequencia()
