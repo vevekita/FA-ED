@@ -26,9 +26,9 @@ class Fila:
         if self.cheia():
             raise ValueError('Fila cheia')
         else:
-            self.fim = self.proximo_indice(self.fim)
             self.elementos[self.fim] = deepcopy(x)
-
+            self.fim = self.proximo_indice(self.fim)
+            
     def desenfileira(self):
         if self.vazia():
             raise ValueError('Fila vazia')
