@@ -6,7 +6,7 @@ from copy import deepcopy
 class Item:
     valor: int | None
 
-class Fila:
+class Fila: # fila normal
     def __init__(self, tam_maximo: int):
         self.elementos: list[Item] = [Item(None)] * tam_maximo
         self.tam_maximo = tam_maximo
