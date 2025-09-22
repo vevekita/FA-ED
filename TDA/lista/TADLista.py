@@ -167,83 +167,101 @@ class lista:
                 self.fim += 1
                 return True
 
-    # def desloca(self, pos: int):
-    #     '''Função de apoio para remoção
-    #     de itens no meio da lista. Essas
-    #     remoções exigem que os elementos
-    #     após o item removido sejam deslocados
-    #     para a esquerda
-    #     Exemplo:
-    #     >>> l = lista(4)
-    #     >>> l.insere_fim(item(8))
-    #     True
-    #     >>> l.insere_fim(item(5))
-    #     True
-    #     >>> l.insere_fim(item(7))
-    #     True
-    #     >>> l.desloca(0)
-    #     >>> l.busca(8)
-    #     -1
-    #     >>> l.busca(7)
-    #     1
-    #     '''
+    def desloca(self, pos: int):
+        '''Função de apoio para remoção
+        de itens no meio da lista. Essas
+        remoções exigem que os elementos
+        após o item removido sejam deslocados
+        para a esquerda
+        Exemplo:
+        >>> l = lista(4)
+        >>> l.insere_fim(item(8))
+        True
+        >>> l.insere_fim(item(5))
+        True
+        >>> l.insere_fim(item(7))
+        True
+        >>> l.desloca(0)
+        >>> l.busca(8)
+        -1
+        >>> l.busca(7)
+        1
+        '''
+
+        for i in range(pos, self.fim):
+            self.elementos[i] = deepcopy(self.elementos[i+1]) # pega o elemento e desloca todos a frente dele
+        self.fim -= 1
         
-    # def remove_fim(self) -> bool:
-    #     '''Remove o último elemento da lista. Se a
-    #     remoção acontecer normalmente a função retorna
-    #     True, se a lista estiver vazia, retorna False
-    #     Exemplos:
-    #      >>> l = lista(4)
-    #     >>> l.insere_fim(item(8))
-    #     True
-    #     >>> l.insere_fim(item(5))
-    #     True
-    #     >>> l.insere_fim(item(7))
-    #     True
-    #     >>> l.remove_fim()
-    #     True
-    #     >>> l.busca(7)
-    #     -1
-    #     '''
+        
+    def remove_fim(self) -> bool:
+        '''Remove o último elemento da lista. Se a
+        remoção acontecer normalmente a função retorna
+        True, se a lista estiver vazia, retorna False
+        Exemplos:
+         >>> l = lista(4)
+        >>> l.insere_fim(item(8))
+        True
+        >>> l.insere_fim(item(5))
+        True
+        >>> l.insere_fim(item(7))
+        True
+        >>> l.remove_fim()
+        True
+        >>> l.busca(7)
+        -1
+        '''
+        if self.vazia() == True:
+            return False
+        else:
+            self.fim -= 1
+        return True
 
-    #     return
-
-    # def remove_pos(self, pos: int) -> bool:
-    #     '''Remove o elemento da posição definida por *pos*. 
-    #     Se a remoção acontecer normalmente a função retorna
-    #     True, se a lista estiver vazia, retorna False
-    #     Exemplos:
-    #      >>> l = lista(4)
-    #     >>> l.insere_fim(item(8))
-    #     True
-    #     >>> l.insere_fim(item(5))
-    #     True
-    #     >>> l.insere_fim(item(7))
-    #     True
-    #     >>> l.remove_pos(0)
-    #     True
-    #     >>> l.busca(8)
-    #     -1
-    #     '''
-
-    #     return
+    def remove_pos(self, pos: int) -> bool:
+        '''Remove o elemento da posição definida por *pos*. 
+        Se a remoção acontecer normalmente a função retorna
+        True, se a lista estiver vazia, retorna False
+        Exemplos:
+         >>> l = lista(4)
+        >>> l.insere_fim(item(8))
+        True
+        >>> l.insere_fim(item(5))
+        True
+        >>> l.insere_fim(item(7))
+        True
+        >>> l.remove_pos(0)
+        True
+        >>> l.busca(8)
+        -1
+        '''
+        if self.vazia() == True or pos < 0 or pos >= self.fim:
+            return False
+        else:
+            self.desloca(pos)
+        return True
     
-    # def remove_valor(self, valor: int) -> bool:
-    #     '''Remove o elemento definido por *valor*. 
-    #     Se a remoção acontecer normalmente a função retorna
-    #     True, se a lista estiver vazia, retorna False
-    #     Exemplos:
-    #      >>> l = lista(4)
-    #     >>> l.insere_fim(item(8))
-    #     True
-    #     >>> l.insere_fim(item(5))
-    #     True
-    #     >>> l.insere_fim(item(7))
-    #     True
-    #     >>> l.remove_valor(8)
-    #     True
-    #     >>> l.busca(8)
-    #     -1
-    #     '''
-
-    #     return
+    def remove_valor(self, valor: int) -> bool:
+        '''Remove o elemento definido por *valor*. 
+        Se a remoção acontecer normalmente a função retorna
+        True, se a lista estiver vazia, retorna False
+        Exemplos:
+         >>> l = lista(4)
+        >>> l.insere_fim(item(8))
+        True
+        >>> l.insere_fim(item(5))
+        True
+        >>> l.insere_fim(item(7))
+        True
+        >>> l.remove_valor(8)
+        True
+        >>> l.busca(8)
+        -1
+        '''
+        if self.vazia() == True:
+            return False
+        else:
+            pos = self.busca(valor)
+            if pos == -1:
+                return False
+            else:
+                self.desloca(pos)
+                return True 
