@@ -64,7 +64,7 @@ class lista:
                 ptr = ptr.prox
             if ptr.prox != None:
                 rem = ptr.prox
-                ptr.prox = rem.prox
+                ptr.prox = rem.prox #daqui a chave já some, porque é como se ela tivesse soltado as mãozinhas da rodinha do criança esperança.
                 if ptr.prox == None:
                     self.ultimo = ptr
                 rem.prox = None
