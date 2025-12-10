@@ -68,16 +68,35 @@ class Conjunto:
 
     def union(self, c2: Conjunto) -> Conjunto:
         '''
-        Realiza a união entre dois conjuntos
+        Retorna um novo conjunto que é a união do conjunto atual com o *c2*.
+        Exemplos:
+        >>> c1 = Conjunto()
+        >>> c1.adiciona(2)
+        >>> c1.adiciona(3)
+        >>> c1.adiciona(4)
+        >>> c2 = Conjunto()
+        >>> c2.adiciona(1)
+        >>> c2.adiciona(2)
+        >>> c2.adiciona(4)
+        >>> c3 = Conjunto()
+        >>> c3 = c1.union(c2)
+        >>> c3.mostra()
+        '{1,2,3,4}'
         '''
-        conjunto_unido = Conjunto()
-        conjunto_unido.adiciona(self.raiz.esq.valor)
-        conjunto_unido.adiciona(self.no.dir.valor)
-        conjunto_unido.adiciona(c2.no.esq.valor)
-        conjunto_unido.adiciona(c2.no.dir.valor)
-        return conjunto_unido
+        c3 = deepcopy(self)
+        c3 = c3.percorre_insere(c2.raiz)
+        return c3
+    
+    def percorre_insere(self, no: no) -> Conjunto:
+        '''Função auxiliar da função union para percorrer e inserir os elementos.'''
+        if no != None:
+            self.percorre_insere(no.esq)
+            self.adiciona(no.dado.valor)
+            self.percorre_insere(no.dir)
+        return self
 
     def insere_no(self, n: no , x: int) -> no | None:
+            '''Função auxiliar da função adiciona para inserir o nó no conjunto.'''
             if n == None:
                 n = no(item(valor=deepcopy(x)))
             elif x > n.dado.valor:
